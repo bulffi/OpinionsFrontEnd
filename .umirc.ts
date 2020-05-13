@@ -18,6 +18,5 @@ export default defineConfig({
   },
   dva: {},
   theme: {
-    "primary-color":"#3c9ae8"
   }
 });

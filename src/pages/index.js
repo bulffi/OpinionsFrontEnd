@@ -85,7 +85,7 @@ export default class App extends React.Component{
           </Header>
 
           <Content>
-            <div style={{padding: '60px 120px', backgroundColor:"white"}}>
+            <div style={{padding: '60px 0', backgroundColor:"white"}}>
               {this.props.children}
             </div>
           </Content>
