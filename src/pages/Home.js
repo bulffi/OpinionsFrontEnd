@@ -1,7 +1,7 @@
 import React from 'react';
 import {Typography, Button, Space, Row, Col, BackTop } from 'antd'
 import {Link} from 'umi'
-import {CodeBlock, dracula} from 'react-code-blocks'
+import {CodeBlock, atomOneLight} from 'react-code-blocks'
 const { Title, Paragraph, Text } = Typography;
 
 export default class Home extends React.Component{
@@ -23,10 +23,10 @@ class HelloMessage extends React.Component {
       <div>
 
         {/*the flowing is slogan*/}
-        <div style={{textAlign: 'center', backgroundImage:'url(./img/home/backGround.png)',
-          backgroundSize: '105%', backgroundRepeat: 'no-repeat', backgroundOrigin: '40% 50%'}}>
+        <div style={{textAlign: 'center', backgroundImage:'url(./img/home/comment.png)',
+          backgroundSize: '22%', backgroundRepeat: 'no-repeat', backgroundOrigin: '40% 50%'}}>
           <div style={{paddingTop: '130px', opacity: '1'}}>
-            <div style={{fontFamily: 'monospace', fontSize: '60px', color: 'black'}}> <u>Opinions</u> Matter :)</div>
+            <Title style={{fontFamily: 'monospace', fontSize: '60px', color: 'black'}}> <u>Opinions</u> Matter :)</Title>
             <Space direction={'vertical'}>
               <div style={{fontSize: '30px', fontFamily: 'monospace', color: 'black'}}> Bring your website a vibrant community</div>
               <div style={{height: '20px'}}/>
@@ -42,13 +42,15 @@ class HelloMessage extends React.Component {
         <Row>
           <Col span={4}/>
           <Col span={7}>
-            <CodeBlock
-              text={code}
-              language={'jsx'}
-              wrapLines
-              highlight={'1,7'}
-              theme={dracula}
-            />
+            <div style={{borderStyle:'dotted', borderWidth: '1px'}}>
+              <CodeBlock
+                text={code}
+                language={'jsx'}
+                wrapLines
+                highlight={'1,7'}
+                theme={atomOneLight}
+              />
+            </div>
           </Col>
           <Col span={3}/>
           <Col span={7}>

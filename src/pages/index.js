@@ -73,9 +73,6 @@ export default class App extends React.Component{
                   <Menu.Item key="1" style={{float: "right"}}>
                     <Button type={'primary'} >{headerButtonName}</Button>
                   </Menu.Item>
-                  <Menu.Item key="2" style={{float: "right"}}>
-                    <Text strong={true}>Get Started</Text>
-                  </Menu.Item>
                   <Menu.Item key={"3"}>
                     <Link to={'/features'}>
                       <Text strong={true}>Features</Text>
