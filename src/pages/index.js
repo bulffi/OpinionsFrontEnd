@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Menu, Button, Col, Row } from 'antd';
+import { Layout, Menu, Button, Col, Row, BackTop } from 'antd';
 import {connect} from 'dva';
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -46,18 +46,30 @@ export default class App extends React.Component{
     } else {
       headerButtonName = 'Sign In'
     }
+    const upStyle = {
+      height: 40,
+      width: 40,
+      lineHeight: '40px',
+      borderRadius: 4,
+      backgroundColor: '#1088e9',
+      color: '#fff',
+      textAlign: 'center',
+      fontSize: 14,
+    };
     return (
         <Layout>
-
+          <BackTop>
+            <div style={upStyle}>TOP</div>
+          </BackTop>
           <Header style={{padding: '0 120px', backgroundColor:"white"}}>
             <Row>
-              <Col span={3}>
-                <Link to={'/'}>
-                  <Title style={{padding: '8px 0', fontFamily: 'Serif'}}>Opinions</Title>
-                </Link>
-              </Col>
-              <Col span={21}>
+              <Col span={24}>
                 <Menu mode={'horizontal'}>
+                  <Menu.Item key="0">
+                    <Link to={'/'}>
+                      <div style={{fontSize: '30px', fontFamily: 'monospace', color: 'black'}}><u><b>Opinions</b></u></div>
+                    </Link>
+                  </Menu.Item>
                   <Menu.Item key="1" style={{float: "right"}}>
                     <Button type={'primary'} >{headerButtonName}</Button>
                   </Menu.Item>
@@ -74,11 +86,6 @@ export default class App extends React.Component{
                       <Text strong={true}>Pricing</Text>
                     </Link>
                   </Menu.Item>
-                  <Menu.Item key={"5"}>
-                    <Link to={'/about'}>
-                      <Text strong={true}>About</Text>
-                    </Link>
-                  </Menu.Item>
                 </Menu>
               </Col>
             </Row>
@@ -92,10 +99,10 @@ export default class App extends React.Component{
 
           <Footer style={{backgroundColor:"#353A3D"}}>
             <Row>
-              <Col span={20}>
+              <Col span={18}>
               </Col>
               <Col span={4}>
-                <Title style={{fontFamily: 'Serif', color:"white"}}>Opinions</Title>
+                <Title style={{fontFamily: 'Serif', color:"white"}}><u>Opinions</u></Title>
                 <Text style={{padding:'0 20px', color:"white"}}>Opinions 2020 ©</Text>
               </Col>
             </Row>
