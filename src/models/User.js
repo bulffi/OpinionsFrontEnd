@@ -1,8 +1,8 @@
 export default {
   namespace: 'USER',
   state: {
-    logIn: false,
-    userName: '',
+    logIn: true,
+    userName: 'zzj',
 
   },
   reducers: {

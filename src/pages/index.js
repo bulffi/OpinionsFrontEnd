@@ -1,9 +1,8 @@
 import React from 'react';
-import { Layout, Menu, Button, Col, Row, BackTop } from 'antd';
+import { Layout, Menu, Button, Col, Row, BackTop, Typography } from 'antd';
 import {connect} from 'dva';
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
-import { Typography } from 'antd';
 import {Link} from 'umi'
 const { Title,Text } = Typography;
 const mapStateToProps = (state) => {
@@ -61,7 +60,7 @@ export default class App extends React.Component{
           <BackTop>
             <div style={upStyle}>TOP</div>
           </BackTop>
-          <Header style={{padding: '0 120px', backgroundColor:"white"}}>
+          <Header style={{padding: '0 120px', backgroundColor:"white",}}>
             <Row>
               <Col span={24}>
                 <Menu mode={'horizontal'}>
@@ -71,7 +70,7 @@ export default class App extends React.Component{
                     </Link>
                   </Menu.Item>
                   <Menu.Item key="1" style={{float: "right"}}>
-                    <Button type={'primary'} >{headerButtonName}</Button>
+                    <Button ><Link to={'/portal'}>{headerButtonName}</Link> </Button>
                   </Menu.Item>
                   <Menu.Item key={"3"}>
                     <Link to={'/features'}>
@@ -89,7 +88,7 @@ export default class App extends React.Component{
           </Header>
 
           <Content>
-            <div style={{padding: '60px 0', backgroundColor:"white"}}>
+            <div style={{padding: '1.5px 0', backgroundColor:"white"}}>
               {this.props.children}
             </div>
           </Content>

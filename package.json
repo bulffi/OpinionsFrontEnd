@@ -20,8 +20,13 @@
     ]
   },
   "dependencies": {
+    "@ant-design/icons": "^4.1.0",
+    "@stripe/react-stripe-js": "^1.1.2",
+    "@stripe/stripe-js": "^1.5.0",
     "@umijs/preset-react": "1.x",
     "@umijs/test": "^3.1.4",
+    "echarts": "^4.7.0",
+    "echarts-for-react": "^2.0.15-beta.1",
     "lint-staged": "^10.0.7",
     "prettier": "^1.19.1",
     "react": "^16.12.0",
