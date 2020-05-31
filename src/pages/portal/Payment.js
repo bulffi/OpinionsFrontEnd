@@ -3,10 +3,15 @@ import {Row, Col, Typography, List,Input, Space, Button} from 'antd'
 const {Title} = Typography
 import CheckoutForm from './components/CheckoutForm'
 import {CardElement} from '@stripe/react-stripe-js';
+import axios from 'axios'
 
 
 
 export default class Payment extends React.Component {
+
+  componentDidMount() {
+  }
+
   render() {
     return(
 

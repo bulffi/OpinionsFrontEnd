@@ -2,6 +2,7 @@
   <dictionary name="zhangzijian">
     <words>
       <w>antd</w>
+      <w>axios</w>
     </words>
   </dictionary>
 </component>

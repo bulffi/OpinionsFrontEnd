@@ -5,6 +5,7 @@ const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 import {Link} from 'umi'
 const { Title,Text } = Typography;
+import 'antd/dist/antd.css';
 const mapStateToProps = (state) => {
   const userInfo = state['USER']
   return {
