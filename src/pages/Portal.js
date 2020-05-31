@@ -107,6 +107,11 @@ export default class Portal extends React.Component {
                   </Menu.Item>
                   <Menu.Item key={'2'}>
                     <Link to={'/portal/manage'}>
+                      <b>Audit Comments</b>
+                    </Link>
+                  </Menu.Item>
+                  <Menu.Item key={'5'}>
+                    <Link to={'/portal/view'}>
                       <b>Manage Comments</b>
                     </Link>
                   </Menu.Item>

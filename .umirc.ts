@@ -18,7 +18,8 @@ export default defineConfig({
             {path: '/portal/stat', component: '@/pages/portal/Stat'},
             {path: '/portal/manage', component: '@/pages/portal/Manage'},
             {path: '/portal/domain', component: '@/pages/portal/Domain'},
-            {path: '/portal/payment', component: '@/pages/portal/Payment'}
+            {path: '/portal/payment', component: '@/pages/portal/Payment'},
+            {path: '/portal/view', component: '@/pages/portal/View'}
           ]
         }
       ],

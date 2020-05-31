@@ -10,19 +10,12 @@ const mapStateToProps = (state) => {
   const userInfo = state['USER']
   return {
     loggedIn: userInfo.logIn,
-    userName: userInfo.usage
+    userName: userInfo.userName
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onClickButton: () => {
-      const action = {
-        type: 'test/increment',
-        payload: 1
-      };
-      dispatch(action)
-    }
   }
 }
 
