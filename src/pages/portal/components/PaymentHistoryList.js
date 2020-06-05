@@ -107,7 +107,7 @@ export default class PaymentHistoryList extends React.Component {
           <List.Item>
             <Skeleton avatar title={false} loading={item.loading} active>
               <List.Item.Meta
-                title={item.amount + ' ' + item.date}
+                title={item.amount + '$  [' + item.date + ']'}
                 description={'Payment ID: ' + item.paymentId}
               />
               <div><Space direction={'horizontal'}><CreditCardOutlined style={{color: 'blue'}} />{item.paymentBrand} {item.last4}</Space> </div>
