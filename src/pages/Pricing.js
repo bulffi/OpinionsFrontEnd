@@ -9,8 +9,8 @@ export default class Pricing extends React.Component {
     commentRequest: 0,
     commentSum: 0,
     viewPrice: (5 + 6 + 1) * Math.pow(10, -6),
-    requestPrice: (5 + 6 + 2) * Math.pow(10, -5),
-    sumPrice: (3) * Math.pow(10, -5)
+    requestPrice: (5 + 6 + 1) * Math.pow(10, -5),
+    // sumPrice: (3) * Math.pow(10, -5)
   }
 
   onChangePageView = (value) => {
@@ -27,18 +27,18 @@ export default class Pricing extends React.Component {
     })
   }
 
-  onChangeCommentSum = (value) => {
-    this.setState({
-      ...this.state,
-      commentSum: value
-    })
-  }
+  // onChangeCommentSum = (value) => {
+  //   this.setState({
+  //     ...this.state,
+  //     commentSum: value
+  //   })
+  // }
 
   render() {
     const viewCost = this.state.commentView * this.state.viewPrice
     const requestCost = this.state.commentRequest * this.state.requestPrice
-    const sumCost = this.state.commentSum * this.state.sumPrice
-    const cost = ( viewCost + requestCost + sumCost).toFixed(2)
+    // const sumCost = this.state.commentSum * this.state.sumPrice
+    const cost = ( viewCost + requestCost ).toFixed(2)
     return(
       <div>
         <div style={{ backgroundImage:'url(./img/pricing/pricingBack.png)',
@@ -78,15 +78,15 @@ export default class Pricing extends React.Component {
                   onChange={this.onChangeCommentRequest}
                 />
               </div>
-              <div>
-                <Text style={{fontFamily: 'monospace', color: 'black', fontSize: '20px'}}> Comment Number {this.state.commentSum} ({this.state.sumPrice.toFixed(6)}$ per comment per month)
-                </Text>
-                <Slider
-                  min={0}
-                  max={999999 + 1}
-                  onChange={this.onChangeCommentSum}
-                />
-              </div>
+              {/*<div>*/}
+              {/*  <Text style={{fontFamily: 'monospace', color: 'black', fontSize: '20px'}}> Comment Number {this.state.commentSum} ({this.state.sumPrice.toFixed(6)}$ per comment per month)*/}
+              {/*  </Text>*/}
+              {/*  <Slider*/}
+              {/*    min={0}*/}
+              {/*    max={999999 + 1}*/}
+              {/*    onChange={this.onChangeCommentSum}*/}
+              {/*  />*/}
+              {/*</div>*/}
             </Col>
             <Col span={6}/>
           </Row>

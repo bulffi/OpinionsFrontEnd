@@ -16,7 +16,7 @@ export default class Payment extends React.Component {
     return(
 
         <div style={{paddingTop: '50px'}}>
-          <Title style={{fontFamily:'monospace', textAlign: 'center'}}>Payment</Title>
+          <Title style={{fontFamily:'monospace', textAlign: 'center'}}>Payment (1$ = 1,000,000 points)</Title>
           <Row>
             <Col span={3}/>
             <Col span={18}>
