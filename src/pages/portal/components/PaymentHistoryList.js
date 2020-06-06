@@ -42,12 +42,12 @@ export default class PaymentHistoryList extends React.Component {
     Get(getPaymentURL, config).then((data) => {
       let more = true
       let results = []
-      if (data.payments.length !== 0) {
-        if (data.payments.length < this.state.pageSize) {
+      if (data.paymentList.length !== 0) {
+        if (data.paymentList.length < this.state.pageSize) {
           more = false
         }
-        for (let i = 0; i < data.payments.length; i++) {
-          results = results.concat([{...data.payments[i], loading: false}])
+        for (let i = 0; i < data.paymentList.length; i++) {
+          results = results.concat([{...data.paymentList[i], loading: false}])
         }
         this.setState({...this.state, lastPaymentId:results[results.length - 1].paymentId, date: results[results.length - 1].date})
       } else {

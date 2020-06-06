@@ -10,7 +10,8 @@ export default {
     userName: '',
     token: '',
     signUpStep: 0,
-    resetStep: 0
+    resetStep: 0,
+    userId: ''
   },
   reducers: {
     loggedIn(state, {payload}) {
@@ -31,6 +32,12 @@ export default {
       return {
         ...state,
         resetStep: state.resetStep + 1
+      }
+    },
+    setUserId(state, {payload}) {
+      return {
+        ...state,
+        userId: payload.userId
       }
     }
   },
@@ -54,6 +61,11 @@ export default {
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + data.token;
         message.success('Welcome!')
         yield put({type: 'loggedIn', payload: loginData})
+        const getIdURL = baseUrl + 'api/userInfo'
+        const idData = yield call(Get, getIdURL)
+        if (idData.code === 200) {
+          yield put({type: 'setUserId', payload:{userId: idData.userId}})
+        }
       }
     },
     *signUp({payload}, sagaEffect) {

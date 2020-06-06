@@ -2,7 +2,6 @@ import React from 'react'
 import {Row, Col, Typography, List,Input, Card, Button, Form, Drawer, message, Modal} from 'antd'
 const {Title, Text, Paragraph} = Typography
 import CheckoutForm from './components/CheckoutForm'
-import {CardElement} from '@stripe/react-stripe-js';
 import axios from 'axios'
 import { connect } from 'umi';
 import BraftEditor from 'braft-editor';
@@ -15,8 +14,10 @@ import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 const mapStateToProps = (state) => {
   const { showList } = state['VIEW']
+  const {userId} = state['USER']
   return {
     showList,
+    userId,
     loading: state.loading.models.VIEW,
   }
 }
@@ -78,7 +79,8 @@ export default class View extends React.Component {
           url: this.state.url,
           appKey: this.state.appKey,
           pageSize: this.state.pageSize,
-          lastID: this.state.mainCommentLastId
+          lastID: this.state.mainCommentLastId,
+          userId: this.props.userId
         }
       }).then((response) => {
       message.success('Loading success')
@@ -116,7 +118,8 @@ export default class View extends React.Component {
           appKey: this.state.appKey,
           pageSize: this.state.pageSize,
           lastID: this.state.subCommentLastId,
-          fatherID: this.state.currentFatherID
+          fatherID: this.state.currentFatherID,
+          userId: this.props.userId
         }
       }).then((response) => {
       message.success('Loading success')
@@ -153,7 +156,8 @@ export default class View extends React.Component {
         params: {
           url: this.state.url,
           appKey: this.state.appKey,
-          pageSize: this.state.pageSize
+          pageSize: this.state.pageSize,
+          userId: this.props.userId
         }
       }
     ).then(
@@ -194,6 +198,7 @@ export default class View extends React.Component {
           appKey: this.state.appKey,
           pageSize: this.state.pageSize,
           fatherID,
+          userId: this.props.userId
         }
       }
     ).then(

@@ -1,17 +1,21 @@
 import React from 'react'
-import {Row, Col, Typography, List,Input, Space, Button,message} from 'antd'
+import {Row, Col, Typography, List,Input, Space, Button,message, Modal} from 'antd'
+const { confirm } = Modal;
 import { connect, loading } from 'umi';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 const {Title, Text} = Typography
 
 
 const mapStateToProps = (state) => {
   const domainInfo = state['DOMAIN']
+  const { userId } = state['USER']
   return {
     currentList : domainInfo.currentDomains,
     totalDomain: domainInfo.totalDomain,
     currentPage: domainInfo.currentPage,
     loading: state.loading.models.DOMAIN,
-    newAppKey: domainInfo.newAppKey
+    newAppKey: domainInfo.newAppKey,
+    userId
   }
 }
 
@@ -96,6 +100,17 @@ export default class Domain extends React.Component {
     this.props.onInitLoadDomain(this.state.pageSize)
   }
 
+  onDeleteDomain = (appKey, pageSize) => {
+    confirm({
+      title: 'Do you want to delete this domain?',
+      icon: <ExclamationCircleOutlined />,
+      content: 'All comments will be deleted',
+      onOk: () => {
+        this.props.deleteDomain(appKey, pageSize)
+      }
+    })
+}
+
   render() {
     let newKey = (<div> </div>)
     if (this.props.newAppKey.trim()!== '') {
@@ -112,6 +127,7 @@ export default class Domain extends React.Component {
           <Col span={3}/>
           <Col span={18}>
             <div style={{borderStyle:'solid', borderWidth: '1px', borderColor: '#F0F0F0'}}>
+              <Text>Your userId: {this.props.userId}</Text>
               <List
                 loading={this.props.loading}
                 itemLayout="horizontal"
@@ -120,7 +136,7 @@ export default class Domain extends React.Component {
                 renderItem={(item)=>{
                   return(
                     <List.Item
-                      actions={[<Button danger={true} onClick={()=> this.props.deleteDomain(item.appKey, this.state.pageSize)}>Delete</Button>]}
+                      actions={[<Button danger={true} onClick={()=> this.onDeleteDomain(item.appKey, this.state.pageSize)}>Delete</Button>]}
                     >
                       <List.Item.Meta
                         title={item.host}

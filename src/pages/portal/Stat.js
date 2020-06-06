@@ -3,7 +3,24 @@ import {Row, Col, Typography, Card, Space, message} from 'antd'
 import axios from 'axios'
 import { baseUrl } from '../../util/ConstStore';
 import Get from '../../util/Get';
+import { connect } from 'umi';
 const {Title} = Typography
+
+
+
+const mapStateToProps = (state) => {
+  const { userId } = state['USER']
+  return {
+    userId
+  }
+}
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {}
+}
+
+@connect(mapStateToProps, mapDispatchToProps)
 export default class Stat extends React.Component {
   state = {
     balance: 0,

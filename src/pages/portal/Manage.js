@@ -13,6 +13,7 @@ import { baseUrl } from '../../util/ConstStore';
 
 const mapStateToProps = (state) => {
   const { commentList,fatherContent, noMoreComment,pageSize, lastId, lastHost  } = state['AUDIT']
+  const { userId } = state['USER']
   return {
     commentList,
     noMoreComment,
@@ -20,19 +21,21 @@ const mapStateToProps = (state) => {
     lastId,
     lastHost,
     fatherContent,
+    userId,
     loading: state.loading.models.AUDIT,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onInit: (pageSize, lastId, lastHost,) => {
+    onInit: (pageSize, lastId, lastHost, userId) => {
       const action = {
         type: 'AUDIT/getCommentList',
         payload: {
           pageSize,
           lastId,
           lastHost,
+          userId,
         }
       }
       dispatch(action)
@@ -63,13 +66,14 @@ const mapDispatchToProps = (dispatch) => {
       }
       dispatch(action)
     },
-    onMoreComment: (pageSize, lastId, lastHost,) => {
+    onMoreComment: (pageSize, lastId, lastHost,userId) => {
       const action = {
         type: 'AUDIT/getCommentList',
         payload: {
           pageSize,
           lastId,
           lastHost,
+          userId,
         }
       }
       dispatch(action)
@@ -92,7 +96,7 @@ export default class Manage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.onInit(this.props.pageSize, this.props.lastId, this.props.lastHost)
+    this.props.onInit(this.props.pageSize, this.props.lastId, this.props.lastHost, this.props.userId)
   }
   componentWillUnmount() {
     this.props.onDestroy()
@@ -104,7 +108,7 @@ export default class Manage extends React.Component {
     this.props.onPass(comment)
     if (lengthBefore === 1) {
       console.log('need more')
-      this.props.onMoreComment(this.props.pageSize, this.props.lastId, this.props.lastHost)
+      this.props.onMoreComment(this.props.pageSize, this.props.lastId, this.props.lastHost, this.props.userId)
     }
   }
 
@@ -113,7 +117,7 @@ export default class Manage extends React.Component {
     const lengthBefore = this.props.commentList.length
     this.props.onDeny(comment.hostPage, comment.commentId)
     if (lengthBefore === 1) {
-      this.props.onMoreComment(this.props.pageSize, this.props.lastId, this.props.lastHost)
+      this.props.onMoreComment(this.props.pageSize, this.props.lastId, this.props.lastHost, this.props.userId)
     }
   }
 

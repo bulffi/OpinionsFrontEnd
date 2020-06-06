@@ -77,7 +77,8 @@ export default {
         params: {
           pageSize: payload.pageSize,
           lastId: payload.lastId,
-          lastHost: payload.lastHost
+          lastHost: payload.lastHost,
+          userId: payload.userId,
         }
       }
       const data = yield call(Get, getCommentURL, config)
