@@ -1,1 +1,1 @@
-export const baseUrl = 'http://localhost:5000/';
+export const baseUrl = 'http://47.108.52.45/';

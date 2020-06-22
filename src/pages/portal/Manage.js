@@ -1,5 +1,15 @@
 import React from 'react';
-import { Row, Col, Typography, Card, List, Button, notification } from 'antd';
+import {
+  Row,
+  Col,
+  Typography,
+  Card,
+  List,
+  Button,
+  notification,
+  Popover,
+  Space,
+} from 'antd';
 import { connect } from 'umi';
 const { Title } = Typography;
 import BraftEditor from 'braft-editor';
@@ -223,7 +233,23 @@ export default class Manage extends React.Component {
               renderItem={item => (
                 <div style={{ paddingBottom: '20px' }}>
                   <Card
-                    title={item.authorName + '  [' + item.email + ']'}
+                    title={
+                      <div>
+                        <Space direction={'horizontal'}>
+                          <div>
+                            {item.authorName + '  [' + item.email + ']'}
+                          </div>
+                          <Popover
+                            content={<div>This contains fuck?</div>}
+                            title="Our judgement"
+                          >
+                            <Button shape={'circle'} type="dashed">
+                              5
+                            </Button>
+                          </Popover>
+                        </Space>
+                      </div>
+                    }
                     extra={this.getCardExtra(item)}
                     actions={[
                       <div>
