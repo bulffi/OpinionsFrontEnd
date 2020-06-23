@@ -240,11 +240,11 @@ export default class Manage extends React.Component {
                             {item.authorName + '  [' + item.email + ']'}
                           </div>
                           <Popover
-                            content={<div>This contains fuck?</div>}
+                            content={<div>{item.eval}</div>}
                             title="Our judgement"
                           >
                             <Button shape={'circle'} type="dashed">
-                              5
+                              {item.score}
                             </Button>
                           </Popover>
                         </Space>
