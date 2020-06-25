@@ -129,6 +129,21 @@ export default class Stat extends React.Component {
           </Col>
           <Col span={2} />
         </Row>
+        <div style={{ height: '50px' }} />
+        <Row>
+          <Col span={4} />
+          <Col span={16}>
+            <Title
+              level={1}
+              style={{ fontFamily: 'monospace', textAlign: 'center' }}
+            >
+              <a href={'http://www.baidu.com?userid=' + this.props.userId}>
+                [Click here] to find our your reviewer's location!
+              </a>
+            </Title>
+          </Col>
+          <Col span={4} />
+        </Row>
       </div>
     );
   }
